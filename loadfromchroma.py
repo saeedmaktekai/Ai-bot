@@ -1,5 +1,10 @@
 from database import injectdata
+from database import retreiveembedding
+# path="/Users/saeedanwar/Desktop/Ai-bot/data"
+# injectdata(path)
 
-query = "summary of book"
-docs = injectdata.similarity_search(query)
-print(docs[0].page_content)
+query="who is marjan "
+smsearch=retreiveembedding(query)
+print(smsearch)
+# print(type(smsearch))
+

@@ -15,7 +15,7 @@ openai_api_key=os.getenv("OPENAI_API_KEY")
 embeddings=OpenAIEmbeddings(openai_api_key=openai_api_key,model="text-embedding-3-large")
 def injectdata(path):
    # load the document and split it into chunks
-   loader = PyPDFDirectoryLoader("/Users/saeedanwar/Desktop/Ai-bot/data/")
+   loader = PyPDFDirectoryLoader(path)
    documents = loader.load()
    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
    docs = text_splitter.split_documents(documents)
@@ -24,16 +24,24 @@ def injectdata(path):
    docs, embeddings, client=new_client, collection_name="openai_collection"
    )
    Chroma.from_documents(docs, embeddings, persist_directory="./chroma_db_openai")
+   return docs 
+
+def retreiveembedding(query):
+   db3 = Chroma(persist_directory="./chroma_db_openai", embedding_function=embeddings)
+   docs = db3.similarity_search(query)
+   return docs
+
+   
+
+
+
+
+
+def lookforsimilaritysearch(query):
+   # load from disk
+   data = Chroma(persist_directory="./chroma_db_openai", embedding_function=embeddings)
+   data.similarity_search(query)
    return data
 
 
-
-
-
-directorypath="/Users/saeedanwar/Desktop/Ai-bot/data/"
-
-data=injectdata(directorypath)
-# query = "summary"
-# docs = openai_lc_client.similarity_search(query)
-# print(docs[0].page_content)
 
