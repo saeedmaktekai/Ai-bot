@@ -5,3 +5,5 @@ chroma_data/
 frechyrequirements.pdf/
 chroma_db_openai/
 data/
+.DS_Store/
+__pycache__/
