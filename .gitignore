@@ -1,5 +1,5 @@
 venv/
-.env/
+
 chroma_db_openai/
 chroma_data/
 frechyrequirements.pdf/
@@ -7,3 +7,4 @@ chroma_db_openai/
 data/
 .DS_Store/
 __pycache__/
+.env/
