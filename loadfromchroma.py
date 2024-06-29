@@ -8,3 +8,5 @@ smsearch=retreiveembedding(query)
 print(smsearch)
 # print(type(smsearch))
 
+
+
