@@ -6,4 +6,6 @@ chroma_db_openai/
 data/
 .DS_Store/
 __pycache__/
-.env/
+
+
+.env
